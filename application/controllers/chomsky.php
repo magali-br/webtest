@@ -16,6 +16,16 @@ class Chomsky extends CI_Controller {
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
+	 *
+	 *TODO
+	 *-put the js, css in separate files
+	 *-add a twirly thing to show loading
+	 *-Make it pretty colours
+	 *-Change the box
+	 *- make an API and document it (see below)
+	 *- make python return JSON: each part of speech, including "article": "", then "sentence": "..."
+	 *- adapt my view to use the API
+	 *
 	 */
 	public function index()
 	{
