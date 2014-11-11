@@ -34,18 +34,18 @@ class Chomsky extends CI_Controller {
 	}
 
 	public function generate() {
-				$command = "/Users/magali/workspace/python/ChomskySatzGenerator.py 2>&1";
-				$pid = popen( $command,"r");
-				echo "<h2>";
-				while( !feof( $pid ) )
-				{
-				 	echo fread($pid, 256);
-				 	flush();
-				 	#ob_flush();
-				 	usleep(100000);
-				}
-				pclose($pid);
-				echo "</h2>";
+		$command = "python/ChomskySatzGenerator.py 2>&1";
+		$pid = popen( $command,"r");
+		echo "<h2>";
+		while( !feof( $pid ) )
+		{
+		 	echo fread($pid, 256);
+		 	flush();
+		 	#ob_flush();
+		 	usleep(100000);
+		}
+		pclose($pid);
+		echo "</h2>";
 	}
 
 	public function generator() {

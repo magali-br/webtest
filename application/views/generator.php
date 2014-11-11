@@ -43,12 +43,12 @@
 	This website generates random sentences based on the sentence coined by Noam Chomsky, 
 	<i>"Colourless green ideas sleep furiously"</i>, to show that a sentence can be syntactically 
 	sound without being semantically sound. These sentences are completely understandable in the 
-	sense that we are able to imagine what they <i>should</i> mean. However, at the same time 
+	sense that we are able to imagine what they <i>should</i> mean. However, at the same time, 
 	we cannot understand them because the words do not make sense with respect to one another. 
 </div>
 
 <div id="container">
-	<div id="body">
+	<div id="internal">
 
 		Click here to generate a new Chomsky sentence:
 		<div>
