@@ -1,6 +1,6 @@
-::selection{ background-color: #E13300; color: white; }
-::moz-selection{ background-color: #E13300; color: white; }
-::webkit-selection{ background-color: #E13300; color: white; }
+::selection{ background-color: #153F39; color: white; }
+::moz-selection{ background-color: #153F39; color: white; }
+::webkit-selection{ background-color: #153F39; color: white; }
 
 body {
 	background-color: #1EBCA5;
@@ -78,8 +78,16 @@ p.footer{
 	margin: 20px 0 0 0;
 }
 
+#intro {
+	margin: 40px 40px 40px 40px;
+	padding: 14px 15px 10px 15px;
+	font-size: 22px;
+	line-height: 30px;
+}
+
 #container{
 	margin: 10px;
 	border: 1px solid #147365;
 	-webkit-box-shadow: 0 0 8px #147365;
+	font-size: 30px;
 }

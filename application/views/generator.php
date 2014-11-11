@@ -4,10 +4,7 @@
 	<meta charset="utf-8">
 	<title>Chomsky Sentence Generator</title>
 	<link rel="icon" type="image/png" href="<?= base_url(); ?>images/ChomskyIcon.png"></link>
-
 	<link rel="stylesheet" href="<?= base_url(); ?>css/ChomskyGenerator.css"></link>
-	<!-- <link rel="shortcut icon" href="<?= base_url() ?>SpaceInvaders.ico"> -->
-
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script>
@@ -20,7 +17,7 @@
 
 		$.get("http://localhost/~magali/webtest/index.php/chomsky/generate", function(data) {
 			$("#chomsky").html(data);
-			// stop twirly Thing
+			// Stop twirly thing
 		});
 
 		// $.get("/Users/magali/workspace/python/ChomskySatzGenerator.py", function(data) {
@@ -42,18 +39,25 @@
 	<h1>THE CHOMSKY SENTENCE GENERATOR</h1>
 </div>
 
+<div id="intro">
+	This website generates random sentences based on the sentence coined by Noam Chomsky, 
+	<i>"Colourless green ideas sleep furiously"</i>, to show that a sentence can be syntactically 
+	sound without being semantically sound. These sentences are completely understandable in the 
+	sense that we are able to imagine what they <i>should</i> mean. However, at the same time 
+	we cannot understand them because the words do not make sense with respect to one another. 
+</div>
+
 <div id="container">
 	<div id="body">
 
-		Click here to generate Chomsky sentence:
+		Click here to generate a new Chomsky sentence:
+		<div>
 		<button type="button" onclick="generateSentence()">Generate</button>
+		</div>
 
 		<div id="chomsky">
 
 			<?php 
-
-				// echo "<img type='image/png' src='chomskyicon.png'/>";
-				// echo "/images/chomskyicon.png/>"
 
 
 				// $command = "/Users/magali/workspace/python/ChomskySatzGenerator.py 2>&1";

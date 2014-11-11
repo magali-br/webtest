@@ -20,11 +20,11 @@ class Chomsky extends CI_Controller {
 	 *TODO
 	 *-put the js, css in separate files
 	 *-add a twirly thing to show loading
-	 *-Make it pretty colours
 	 *-Change the box
 	 *- make an API and document it (see below)
 	 *- make python return JSON: each part of speech, including "article": "", then "sentence": "..."
 	 *- adapt my view to use the API
+	 *-add words to database so that sentence generation doesn't take so long
 	 *
 	 */
 	public function index()
