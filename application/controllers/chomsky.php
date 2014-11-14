@@ -18,14 +18,13 @@ class Chomsky extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 *
 	 *TODO
-	 *-put the js, css in separate files
 	 *-add a twirly thing to show loading
-	 *-Change the box
 	 *- make an API and document it (see below)
 	 *- make python return JSON: each part of speech, including "article": "", then "sentence": "..."
 	 *- adapt my view to use the API
 	 *-add words to database so that sentence generation doesn't take so long
-	 *
+	 *------use ids to generate random number
+	 *- remove proper names from noun
 	 */
 	public function index()
 	{

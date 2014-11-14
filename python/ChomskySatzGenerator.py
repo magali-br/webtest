@@ -1,6 +1,9 @@
-#!/usr/local/bin/python2.7
+#!/usr/local/bin/python
 
 #other places do not load NLTK  ( well same path with python2.7 works!!! )
+
+# THIS PROGRAM MUST BE EXECUTED FROM OUTSIDE ITS PYTHON FOLDER 
+#    AS python/ChomskySatzGenerator.py
 
 import random
 import nltk
@@ -13,25 +16,20 @@ def php(script_path, word):
     result = p.communicate()[0]
     return result
 
-# pageHtml = "<h1>Google Results</h1>"
-# word = "apprehensive"
-# googleResultCount = php("/Users/magali/workspace/web/googleResultCount.php", word) 
-# print pageHtml + " for " + word + " is " + googleResultCount
-
 def commonWord(word):
 	cutoff = 5000000
 	#print "word is " + word
 	if word == '':
 		return True
 
-	result =  php("/Users/magali/workspace/web/googleResultCount.php", word)
-	#print "result is " + result
+	#Also works
+	result =  php("application/helpers/google_result_helper.php", word)
+
+	# Somehow call controler + method - doesn't work
+	#result =  php("welcome/googletest", word)
 
 	result = result.replace(',','')
 	if not result.isdigit():
-		# Sometimes, the regular expression returns something more than just a 
-		# INVESTIGATE!!!!!!!
-		#print "result is " + result + ": NOT A NUMBER"
 		return False
 	
 	if int(result.replace(',', '')) > cutoff:
@@ -68,7 +66,7 @@ class ChomskySatzGenerator:
 	def generate(self):
 		return self.satzType()
 
-	# COULD ALSO USE pattern-en!!!!! Or wiktionary...
+	# COULD ALSO USE pattern-en TO PLURALIZE!!
 	def plural(self, word):
 	    """
 	    Converts a word to its plural form.
@@ -160,8 +158,10 @@ class ChomskySatz:
 		
 
 	def parse(self):
-		return ' '.join([self.article, self.adjective1, self.adjective2, self.noun, self.verb, self.adverb])
-
+		sentence = ' '.join([self.article, self.adjective1, self.adjective2, self.noun, self.verb, self.adverb])
+		if sentence[0] == ' ':
+			sentence = sentence[1:]
+		return sentence
 
 	def randomWord(self, wordList):
 		searchingForWord = True
@@ -194,10 +194,11 @@ if __name__ == "__main__":
 	# print s.parse()
 
 	g = ChomskySatzGenerator()
-	sentence = g.generate().parse()
-	if sentence[0] == ' ':
-		sentence = sentence[1:]
+	sentence = g.generate()
+	sentence = sentence.parse()
 	print sentence[0].upper() + sentence[1:]
+
+	
 
 	# f = ChomskySatzGenerator(True)
 	# print f.generate().parse()

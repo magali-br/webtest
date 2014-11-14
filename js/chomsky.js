@@ -1,11 +1,26 @@
 
 function generateSentence() {
 
-	$("#chomsky").html("Sentence being generated...");
-
 	// Start twirly thing to make person be patient...
 
-	$.get("http://localhost/~magali/webtest/index.php/chomsky/generate", function(data) {
+	var pathArray = window.location.pathname.split( '/' );
+	var pathname = window.location.protocol + "//" + window.location.host;
+	for (i = 0; i < pathArray.length - 1; i++) {
+		if (pathArray[i].length > 0) {
+	  		pathname += "/";
+	  		pathname += pathArray[i];
+	  	}
+	}
+	pathname += "/generate";
+
+	$("#chomsky").html("Sentence being generated...");
+
+
+	// Pathname on my computer should be 
+	// 		http://localhost/~magali/webtest/index.php/chomsky/generate
+	// window.location.pathname is http://localhost/~magali/webtest/index.php/chomsky/generator
+
+	$.get(pathname, function(data) {
 		$("#chomsky").html(data);
 		// Stop twirly thing
 	});

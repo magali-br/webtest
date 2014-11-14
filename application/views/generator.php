@@ -36,30 +36,6 @@
 
 			<?php 
 
-
-				// $command = "/Users/magali/workspace/python/ChomskySatzGenerator.py 2>&1";
-				// $pid = popen( $command,"r");
-				// echo "<h2>";
-				// while( !feof( $pid ) )
-				// {
-				//  	echo fread($pid, 256);
-				//  	flush();
-				//  	ob_flush();
-				//  	usleep(100000);
-				// }
-				// pclose($pid);
-				// echo "</h2>";
-
-
-				// $command = escapeshellcmd('/Users/magali/workspace/python/ChomskySatzGenerator.py');
-				// $output = shell_exec($command);
-				// echo $output;
-
-
-
-
-				// exec("python /Users/magali/workspace/python/ChomskySatzGenerator.py 2>&1", $output);
-				// var_dump($output);
 			?>
 
 		</div>
