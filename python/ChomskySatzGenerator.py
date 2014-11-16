@@ -9,6 +9,8 @@ import random
 import nltk
 from nltk.corpus import wordnet as wn
 import subprocess
+import json
+from collections import OrderedDict
 
 def php(script_path, word):
 	#word = "'" + word + "'"
@@ -161,6 +163,7 @@ class ChomskySatz:
 		sentence = ' '.join([self.article, self.adjective1, self.adjective2, self.noun, self.verb, self.adverb])
 		if sentence[0] == ' ':
 			sentence = sentence[1:]
+		sentence = sentence[0].upper() + sentence[1:]
 		return sentence
 
 	def randomWord(self, wordList):
@@ -187,16 +190,25 @@ class MyChomskySatz (ChomskySatz):
 
 
 
-
-
 if __name__ == "__main__":
 	# s = ChomskySatz()
 	# print s.parse()
 
 	g = ChomskySatzGenerator()
-	sentence = g.generate()
-	sentence = sentence.parse()
-	print sentence[0].upper() + sentence[1:]
+	satz = g.generate()
+	sentence = satz.parse()
+	print sentence
+
+	pos_dict = {'article' : satz.article, \
+		'adjective1': satz.adjective1, 'adjective2': satz.adjective2, \
+		'noun' : satz.noun, 'verb': satz.verb, 'adverb': satz.adverb }
+
+	sort_order = ['article', 'adjective1', 'adjective2', 'noun', 'verb', 'adverb']
+	sentence_ordered = OrderedDict(sorted(pos_dict.items(), \
+			key=lambda (k, v): sort_order.index(k)))
+	data = OrderedDict({'sentence': sentence, 'parts_of_speech': sentence_ordered})
+
+	print json.dumps(data, indent=4, separators=(',', ': '))
 
 	
 

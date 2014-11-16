@@ -23,7 +23,7 @@ class Chomsky extends CI_Controller {
 	 *- make python return JSON: each part of speech, including "article": "", then "sentence": "..."
 	 *- adapt my view to use the API
 	 *-add words to database so that sentence generation doesn't take so long
-	 *------use ids to generate random number
+	 *------use ids to generate random number; or number on top of file saving all nouns & adjectives
 	 *- remove proper names from noun
 	 */
 	public function index()
