@@ -32,10 +32,17 @@ class Chomsky extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
-	public function generate() {
-		$command = "python/ChomskySatzGenerator.py 2>&1";
+	public function generatesentence() {
+		$this->generate('sentence');
+	}
+
+	public function generatejson() {
+		$this->generate('json');
+	}
+
+	function generate($argument) {
+		$command = "python/ChomskySatzGenerator.py $argument 2>&1";
 		$pid = popen( $command,"r");
-		echo "<h2>";
 		while( !feof( $pid ) )
 		{
 		 	echo fread($pid, 256);
@@ -46,6 +53,8 @@ class Chomsky extends CI_Controller {
 		pclose($pid);
 		echo "</h2>";
 	}
+
+
 
 	public function generator() {
 		$this->load->view('generator');

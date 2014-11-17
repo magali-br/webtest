@@ -11,7 +11,7 @@ function generateSentence() {
 	  		pathname += pathArray[i];
 	  	}
 	}
-	pathname += "/generate";
+	pathname += "/generatesentence";
 
 	$("#chomsky").html("Sentence being generated...");
 
@@ -21,7 +21,7 @@ function generateSentence() {
 	// window.location.pathname is http://localhost/~magali/webtest/index.php/chomsky/generator
 
 	$.get(pathname, function(data) {
-		$("#chomsky").html(data);
+		$("#chomsky").html(	"<h2>" + data + "</h2>");
 		// Stop twirly thing
 	});
 
